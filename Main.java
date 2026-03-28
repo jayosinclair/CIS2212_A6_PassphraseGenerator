@@ -11,6 +11,11 @@ Goal: To Design, write, and test an object-oriented solution that produces rando
  */
 
 //https://github.com/jayosinclair/CIS2212_A6_PassphraseGenerator.git
+
+
+//The word list for this program was found with a quick google search, which returned this github link:
+//https://github.com/dwyl/english-words/blob/master/words.txt
+
 //**********************************************************************************************************************
 
 public class Main {
