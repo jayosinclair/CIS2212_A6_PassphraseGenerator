@@ -18,9 +18,50 @@ Goal: To Design, write, and test an object-oriented solution that produces rando
 
 //**********************************************************************************************************************
 
-public class Main {
+import java.util.Scanner;
 
+public class Main {
     public static void main(String[] args) {
+
+		Scanner scnr = new Scanner(System.in);
+		int numPassphrases = 0;
+		int numWords = 0;
+
+		System.out.println("I will generate random passphrases made up of random words of a specified size.\n");
+		
+		//Put all this into a while loop.
+		
+		System.out.print("How many random passphrases do you want to generate? ");
+		
+		numPassphrases = scnr.nextInt(); //TODO: Catch input errors.
+		//System.out.println("Make sure you enter an integer. Try again.");
+
+		System.out.print("How many words should be in each passphrase? ");
+		numWords = scnr.nextInt(); //TODO: Catch input errors.
+		//System.out.println("Make sure you enter an integer. Try again.");
+
+		System.out.print("Enter the size of each of the words used to make the random passphrases. "); //TODO: Catch input errors.
+		//System.out.println("Make sure you enter an integer. Try again.");
+
+		System.out.println("Sorry, but no words of that size are in that list.");
+
+		System.out.println("Here are your random passphrases:");
+		//Print each of the passphrases
+
+		System.out.print("Do you want to create more passphrases? (Y or N): ");
+		//TODO: Keep validating inputs throughout...
+		
+		//Loop End
+
+
+		System.out.println("Bye!");
+		
+		
+
+
+
+
+
 
     }
 }
