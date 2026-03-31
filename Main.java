@@ -18,50 +18,111 @@ Goal: To Design, write, and test an object-oriented solution that produces rando
 
 //**********************************************************************************************************************
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
 		Scanner scnr = new Scanner(System.in);
 		int numPassphrases = 0;
 		int numWords = 0;
+		int wordSize = 0;
+		boolean keepGoing = true;
 
 		System.out.println("I will generate random passphrases made up of random words of a specified size.\n");
 		
 		//Put all this into a while loop.
+
+		while (keepGoing){
 		
-		System.out.print("How many random passphrases do you want to generate? ");
-		
-		numPassphrases = scnr.nextInt(); //TODO: Catch input errors.
-		//System.out.println("Make sure you enter an integer. Try again.");
+			System.out.print("How many random passphrases do you want to generate? ");
+			
+			numPassphrases = getIntResponse(scnr);
+			System.out.println(numPassphrases);
+			
+			System.out.print("How many words should be in each passphrase? ");
+			numWords = getIntResponse(scnr);
+			System.out.println(numWords);
 
-		System.out.print("How many words should be in each passphrase? ");
-		numWords = scnr.nextInt(); //TODO: Catch input errors.
-		//System.out.println("Make sure you enter an integer. Try again.");
+			System.out.print("Enter the size of each of the words used to make the random passphrases. ");
+			wordSize = getIntResponse(scnr);
+			System.out.println(numWords);
 
-		System.out.print("Enter the size of each of the words used to make the random passphrases. "); //TODO: Catch input errors.
-		//System.out.println("Make sure you enter an integer. Try again.");
+			//TODO: Handle this with a loop through an ArrayList...
+			System.out.println("Sorry, but no words of that size are in that list.");
 
-		System.out.println("Sorry, but no words of that size are in that list.");
+			System.out.println("Here are your random passphrases:");
+			//Print each of the passphrases
 
-		System.out.println("Here are your random passphrases:");
-		//Print each of the passphrases
+			System.out.print("Do you want to create more passphrases? (Y or N): ");
+			if (getCharacterResponse(scnr) == 'N' || getCharacterResponse(scnr) == 'n'){
+				keepGoing = false;
+			}
 
-		System.out.print("Do you want to create more passphrases? (Y or N): ");
-		//TODO: Keep validating inputs throughout...
-		
-		//Loop End
 
+		}
 
 		System.out.println("Bye!");
-		
-		
-
-
-
-
-
 
     }
+
+
+	public static int getIntResponse(Scanner input){
+
+		int response = -1; //Cannot have a negative number of passphrases, word size, etc., so using this as sentinel
+
+		while (response < 0){
+
+			try{
+				response = input.nextInt();
+
+				if (response < 0){
+					System.out.print("Make sure you enter a integer greater than 0. Try again. ");
+				}
+
+			}
+
+			catch(InputMismatchException e){
+				System.out.print("Make sure you enter a integer greater than 0. Try again. ");
+				input.next(); //Clear the buffer
+			}
+
+		}
+
+		return response;
+
+	}
+
+
+	public static Character getCharacterResponse(Scanner input){
+
+		Character response = 'Q';
+
+		while (Character.toUpperCase(response) != 'Y' && Character.toUpperCase(response) != 'N'){
+
+			try{
+				
+				response = input.next().charAt(0);
+				response = Character.toUpperCase(response);
+
+			}
+
+			catch(InputMismatchException e){
+				System.out.print("E! Make sure you enter Y or N. Try again. ");
+				input.next(); //Clear the buffer
+			}
+
+			if (Character.toUpperCase(response) != 'Y' && Character.toUpperCase(response) != 'N'){
+				System.out.print("Make sure you enter Y or N. Try again. ");
+			}
+
+		}
+
+		return response;
+
+	}
+
+
+
 }
