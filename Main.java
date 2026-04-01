@@ -30,6 +30,23 @@ public class Main {
 		int wordSize = 0;
 		boolean keepGoing = true;
 
+		//Need to construct PassphraseGenerator object in the main method.
+
+		/*
+		
+		We will construct the PassphraseGenerator object in the main method and call the method we write 
+		that drives the user interface. You can name that method in the PassphraseGenerator class whatever you wish.
+		•When we construct the PassphraseGenerator object in the main method, we need to 
+		provide the pathname of the text file that contains the words we want to use to build our passphrases. 
+		You will need to search online and download a word list text file and then send the name of that file to the 
+		constructor of the PassphraseGenerator.
+		
+		*/
+
+
+		//*********MUCH OF THIS NEEDS TO MOVE TO PASSPHRASEGENERATOR CLASS SINCE THAT IS THE UI LAYER!*********
+
+
 		System.out.println("I will generate random passphrases made up of random words of a specified size.\n");
 		
 		while (keepGoing){

@@ -65,6 +65,12 @@ public class WordBank {
         
         */
 
+        //The method that loads the words should open the 
+        //text file, which means it must throw the file-not-found exception. 
+        //Again, do not catch this error in the WordBank class.
+
+        //Add each word to a hashset.
+
     }
     
     public String getRandomWordAnySize(){
