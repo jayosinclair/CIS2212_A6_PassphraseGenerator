@@ -2,22 +2,25 @@
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.random.*;
+//Need import statement to handle file operations...I think
+
 
 public class WordBank {
 
-    public static final int NO_SPECIFIED_SIZE = -1;
+    public static final int NO_SPECIFIED_WORD_SIZE = -1;
 
     //Need a dynamic collection object
     public ArrayList <String> wordBankWords = null; //This collection may or may not be an arraylist. Need to go read about hashsets.
 
-    /*
-    
-    •We need the flexibility to construct a word bank in two different ways:
-        -We want to be able to create a word bank that contains all words that are in a text file.
-        -We also want the option to create a word bank that contains only words of specific size, 
-        like only 5-letter words for a game of Wordle.
+    //Need a random object
 
-    */
+    //Need a scanner object
+
+    //Need inputstream/printstream objects
+
+
+
 
     /**
      * Constructor WordBank with a single parameter builds a word bank irrespective of word size.
@@ -26,7 +29,7 @@ public class WordBank {
      */
     public WordBank(String filePath) throws FileNotFoundException{
 
-        readWordsFromFile(filePath, NO_SPECIFIED_SIZE);
+        readWordsFromFile(filePath, NO_SPECIFIED_WORD_SIZE);
 
     }
 
@@ -49,7 +52,7 @@ public class WordBank {
      */
     private void readWordsFromFile(String filePath, int specificWordSize) throws FileNotFoundException{
 
-        if (specificWordSize == NO_SPECIFIED_SIZE){
+        if (specificWordSize == NO_SPECIFIED_WORD_SIZE){
 
             //We want to load all words
 
@@ -86,7 +89,7 @@ public class WordBank {
 
     }
 
-    public boolean wordInList(){
+    public boolean isWordInList(){
 
         boolean fixme = false;
 
@@ -103,7 +106,7 @@ public class WordBank {
 
     }
 
-    public boolean listHasWordGivenSize(int size){
+    public boolean isWordInListGivenSize(int size){
 
         boolean fixme = false;
 
