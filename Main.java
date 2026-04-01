@@ -32,8 +32,6 @@ public class Main {
 
 		System.out.println("I will generate random passphrases made up of random words of a specified size.\n");
 		
-		//Put all this into a while loop.
-
 		while (keepGoing){
 		
 			System.out.print("How many random passphrases do you want to generate? ");
@@ -56,7 +54,7 @@ public class Main {
 			//Print each of the passphrases
 
 			System.out.print("Do you want to create more passphrases? (Y or N): ");
-			if (getCharacterResponse(scnr) == 'N' || getCharacterResponse(scnr) == 'n'){
+			if (getYNCharacterResponse(scnr) == 'N' || getYNCharacterResponse(scnr) == 'n'){
 				keepGoing = false;
 			}
 
@@ -68,6 +66,13 @@ public class Main {
     }
 
 
+	/**
+	 * Method getIntResponse seeks integer input > 0 and validates it is, in fact, an integer > 0. Input is
+	 * sought until an integer > 0 is successfully retrieved.
+	 * @param input is a Scanner object that can be used to get input from the keyboard, a file, etc. 
+	 * It is only used as keyboard input in this program, but reuse is simple.
+	 * @return response value is validated, integer > 0 output
+	 */
 	public static int getIntResponse(Scanner input){
 
 		int response = -1; //Cannot have a negative number of passphrases, word size, etc., so using this as sentinel
@@ -94,8 +99,14 @@ public class Main {
 
 	}
 
-
-	public static Character getCharacterResponse(Scanner input){
+	/**
+	 * Method getYNCharacterResponse seeks a Character object and validates it is, in fact, a character that is either Y or N. Input is
+	 * sought until a Character object is entered and it is a Y or N (or lowercase counterparts y or n, which are converted to uppercase).
+	 * @param input is a Scanner object that can be used to get input from the keyboard, a file, etc. 
+	 * It is only used as keyboard input in this program, but reuse is simple.
+	 * @return response value is validated, Character that is y/Y/n/N
+	 */
+	public static Character getYNCharacterResponse(Scanner input){
 
 		Character response = 'Q';
 
@@ -109,7 +120,7 @@ public class Main {
 			}
 
 			catch(InputMismatchException e){
-				System.out.print("E! Make sure you enter Y or N. Try again. ");
+				System.out.print("Make sure you enter Y or N. Try again. ");
 				input.next(); //Clear the buffer
 			}
 
@@ -122,7 +133,5 @@ public class Main {
 		return response;
 
 	}
-
-
 
 }
