@@ -1,23 +1,29 @@
 
 import java.io.FileNotFoundException;
+import java.util.Set; //Use hashset instead of an ArrayList
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.random.*;
-//Need import statement to handle file operations...I think
+import java.io.FileInputStream;
 
 
 public class WordBank {
 
     public static final int NO_SPECIFIED_WORD_SIZE = -1;
 
-    //Need a dynamic collection object
-    public ArrayList <String> wordBankWords = null; //This collection may or may not be an arraylist. Need to go read about hashsets.
+    String word;
+
+    public Set <String> wordBankWords = new HashSet<>();
 
     //Need a random object
 
     //Need a scanner object
 
     //Need inputstream/printstream objects
+
+    //FileInputStream inputFile = new FileInputStream(filePath);
+    //Scanner fileScnr = new Scanner(filePath);
 
 
 
@@ -71,6 +77,8 @@ public class WordBank {
 
         //Add each word to a hashset.
 
+        // So, our method that loads the words should add each word size to a HashSet.
+
     }
     
     public String getRandomWordAnySize(){
@@ -84,11 +92,11 @@ public class WordBank {
     }
 
 
-    public String getRandomWordGivenSize(int size){
+    public String getRandomWordSpecificSize(int size){
 
         String fixme;
 
-        //  oGet a random word from the list of a specific size, in the case that the list contains all 
+        //Get a random word from the list of a specific size, in the case that the list contains all 
         //the words of various sizes. If no words exist of that size, return an empty String.
 
         return fixme;
@@ -104,7 +112,7 @@ public class WordBank {
          oTrue or false, is a specified word in the list? (While this method will not be 
     useful when creating random passphrases, it will be very useful in other applications 
     that need to verify if a string of characters represents a word. So, we will add this 
-    method to our design and write temporary code to test it.)
+    method to our design and write temporary code to test it.)... Hashset is perfect for this.
         
         */
 
@@ -131,7 +139,13 @@ public class WordBank {
     word of that size exists in the list, then the method should return an empty String. AI Tip: Research examples 
     that use Java HashSet or look at the chapter in the online book about Collections.
 
-        
+    an enhanced for loop should help with this...
+
+    for (String value : wordBankWords){
+
+    System.out.println(value); IF the strlen matches size
+
+
         */
 
 

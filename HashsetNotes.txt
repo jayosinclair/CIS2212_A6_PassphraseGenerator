@@ -1,0 +1,86 @@
+https://www.youtube.com/watch?v=QvHBHuuddYk --> hashset video
+
+
+Set<String> names = new Set();
+
+
+A set is an interface, and not a normal class. Need to create a class that implements the interface.
+
+This is what HashSet does.
+
+
+Set<String> names = new HashSet<>();
+
+
+HashSet is the implementation to use 90% of time in using Set.
+
+
+names.add("Walter");
+names.add("Jesse");
+names.add("Skyler");
+names.add("Mike");
+names.add("Saul");
+
+System.out.println(names);
+
+
+Order is not maintained, unlike with a list. A HashSet has no particular order. No guarantees as to what order objects would be in set.
+
+If you try to re-add the same item to the set, the duplicate will not be added (this is by design).
+
+names.remove("Walter");
+
+
+Cannot remove an item by using an index. But this can be misleading. No compilation error if you say names.remove(0);
+
+Get set size by names.size();
+
+names.contains("Saul") is true. names.contains("Gus") is false
+
+
+names.isEmpty();
+names.clear(); clears out all items in set
+
+
+Can iterate over elements... enhanced for loop is a way to do this.
+
+for (String name : names){
+
+    System.out.println(name);
+
+}
+
+Just remember hashset is in no particular order...
+
+names.iterator() provides an iterator object to iterate through the set.
+
+
+Iterator<String> namesIterator = names.iterator();
+
+while(namesIterator.hasNext()){
+
+    System.out.println(namesIterator.next()); //This will also not print in any given order...
+
+}
+
+
+addAll us a method that can take everything from one list and quickly add it to a set.:
+
+Set<Integer> numberSet = new HashSet<>();
+numberSet.addAll(numberList);
+System.out.println(numberSet);
+
+
+or you could pass the numberList into the constructor.
+
+Hashset is used when you don't want dupes and don't care about order. Often is used to remove duplicate items from a list.
+
+
+
+
+Treeset also exists, but puts into natural order. But HashSet is way faster.
+
+
+A LinkedHashSet maintains insertion order of elements (same order as added to set). This is almost as fast as a HashSet.
+
+

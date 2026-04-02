@@ -1,13 +1,30 @@
+import java.io.FileNotFoundException;
+
 public class PassphraseGenerator {
+
+WordBank list;
 
     /*
     will provide the user interface layer for our application. Here are the specifications for the passphrase generator class:
 •We will construct the PassphraseGenerator object in the main method and call the method we write 
 that drives the user interface. You can name that method in the PassphraseGenerator class whatever you wish.
-•When we construct the PassphraseGenerator object in the main method, we need to provide the 
-pathname of the text file that contains the words we want to use to build our passphrases. You 
-will need to search online and download a word list text file and then send the name of that file 
-to the constructor of the PassphraseGenerator.
+
+*/
+
+public PassphraseGenerator(String filePath){
+
+
+}
+
+list = new WordBank(fileName);
+
+
+
+
+
+
+/* 
+
 
 •The class should have a WordBank object. The name of the word list file, which was received in the 
 constructor for this class, should be passed to the WordBank constructor.
