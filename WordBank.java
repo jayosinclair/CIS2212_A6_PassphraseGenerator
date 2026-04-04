@@ -1,10 +1,9 @@
 
 import java.io.FileNotFoundException;
 import java.util.Set; //Use hashset instead of an ArrayList
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
-import java.util.random.*;
+import java.util.Random;
 import java.io.FileInputStream;
 
 
@@ -16,11 +15,12 @@ public class WordBank {
 
     public Set <String> wordBankWords = new HashSet<>();
 
-    //Need a random object
+    Random rand = new Random();
 
-    //Need a scanner object
+    Scanner scnr = new Scanner(System.in);
+    //Scanner fscnr = new Scanner(file);
 
-    //Need inputstream/printstream objects
+    FileInputStream inputFile; //Need inputstream/printstream objects
 
     //FileInputStream inputFile = new FileInputStream(filePath);
     //Scanner fileScnr = new Scanner(filePath);
@@ -36,6 +36,8 @@ public class WordBank {
     public WordBank(String filePath) throws FileNotFoundException{
 
         readWordsFromFile(filePath, NO_SPECIFIED_WORD_SIZE);
+
+        //Throw exception, but don't try/catch here.
 
     }
 
@@ -77,7 +79,7 @@ public class WordBank {
 
         //Add each word to a hashset.
 
-        // So, our method that loads the words should add each word size to a HashSet.
+        // Our method that loads the words should add each word size to a HashSet. Are these different hashsets?? Guess so...
 
     }
     
@@ -112,7 +114,7 @@ public class WordBank {
          oTrue or false, is a specified word in the list? (While this method will not be 
     useful when creating random passphrases, it will be very useful in other applications 
     that need to verify if a string of characters represents a word. So, we will add this 
-    method to our design and write temporary code to test it.)... Hashset is perfect for this.
+    method to our design and write temporary code to test it.)... Hashset is perfect for this. Use wordBankWords.contains()
         
         */
 
@@ -145,7 +147,8 @@ public class WordBank {
 
     System.out.println(value); IF the strlen matches size
 
-
+    Use wordBankWords.contains()
+    
         */
 
 

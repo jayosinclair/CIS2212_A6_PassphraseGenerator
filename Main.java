@@ -18,12 +18,13 @@ Goal: To Design, write, and test an object-oriented solution that produces rando
 
 //**********************************************************************************************************************
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args){
 
-		
+		String filePath = "";
 
+		new PassphraseGenerator().go(filePath);
+
+	}
+	
 }
