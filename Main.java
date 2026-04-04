@@ -21,10 +21,10 @@ Goal: To Design, write, and test an object-oriented solution that produces rando
 public class Main {
     public static void main(String[] args){
 
-		String filePath = "";
+		String filePath = "words.txt"; //This file name is hard-coded in, but this can be extended with a simple ask of the user with a scanner to get console input. The file must be in the same folder as the rest of the files.
 
 		new PassphraseGenerator().go(filePath);
 
 	}
-	
+
 }
