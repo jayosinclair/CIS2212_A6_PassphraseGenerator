@@ -4,64 +4,126 @@ import java.util.Scanner;
 
 public class PassphraseGenerator {
 
-    WordBank list;
+    public WordBank list;
+    public Scanner scnr;
 
-        /*
-        will provide the user interface layer for our application. Here are the specifications for the passphrase generator class:
-    •We will construct the PassphraseGenerator object in the main method and call the method we write 
-    that drives the user interface. You can name that method in the PassphraseGenerator class whatever you wish.
+    public PassphraseGenerator() {
 
-    */
-
-
-    public void go(String filePath){
-
-        //Method that starts the generator... TODO Need to make conditional depending on route taken (specific size or not).
-
-        try{
-
-            list = new WordBank(filePath);
-
-        }
-
-        catch(FileNotFoundException e){
-            
-            //TODO add a while loop to keep prompting for a file.
-            System.out.println("File not found. Please try again or type Q to quit: ");
-            
-        }
-
-
-
-        try{
-
-            list = new WordBank(filePath, size); //TODO need to handle size
-
-        }
-
-        catch(FileNotFoundException e){
-            
-            //TODO add a while loop to keep prompting for a file.
-            System.out.println("File not found. Please try again or type Q to quit: ");
-            
-        }
-
+        list = null;
+        scnr = null;
 
     }
 
-    public void buildPhrase(){
+    public void go(String filePath){
+
+        int numPassphrases = -1;
+	    int numWords = -1;
+	    int wordSize = -1;
+        scnr = new Scanner(System.in);
+        boolean keepGoing = true;
+        String passPhrase = "";
+
+        System.out.println("I will generate random passphrases made up of random words of a specified size.\n");
+        
+
+        while (keepGoing){
+                
+            System.out.print("How many random passphrases do you want to generate? ");
+                    
+            numPassphrases = getIntResponse(scnr);
+            System.out.println(numPassphrases);
+                    
+            System.out.print("How many words should be in each passphrase? ");
+            numWords = getIntResponse(scnr);
+            System.out.println(numWords);
+
+            System.out.print("Enter the size of each of the words used to make the random passphrases. ");
+            wordSize = getIntResponse(scnr);
+            System.out.println(numWords);
+
+
+
+            try{
+
+                list = new WordBank(filePath);
+
+            }
+
+            catch(FileNotFoundException e){
+            
+                //TODO add a while loop to keep prompting for a file.
+                System.out.println("File not found. Do you wish to try again? ");
+            
+            }
+
+
+
+
+            if (!list.isWordInListGivenSize(wordSize)){
+                
+                System.out.println("Sorry, but no words of that size are in that list.");
+
+            }
+
+
+
+            System.out.println("Here are your random passphrases:");
+            
+            //Need to actually build passphrase based on number of words. Use nested loop.
+
+
+            for (int i = 0; i < numPassphrases; i++){
+
+                for (int j = 0; j < numWords; j++){
+
+                    passPhrase += list.getRandomWordAnySize();
+
+                }
+
+                System.out.println(passPhrase);
+
+            }
+
+            System.out.print("Do you want to create more passphrases? (Y or N): ");
+            
+            if (getYNCharacterResponse(scnr) == 'N' || getYNCharacterResponse(scnr) == 'n'){
+                keepGoing = false;
+            }
+
+        }
+
+        System.out.println("Bye!");
+
+    }
+
+           
+
+            
+
+            
+
+
+
+
 
         //Prompt the user for the number of passphrases to be created, the number of words to be included 
         //in each passphrase, and how many letters should be in each random word that is used to create the passphrases.
+
+
+
+
+
+
+
+
+
+
 
         //Verify that the requested word size will work. If no word exists of that size, display an error message.
 
         //Build and display the passphrases with the requested number of random words of the specified size from the word bank.
         
         //Ask the user if they wish to build more passphrases. If the answer is yes, do not reload the words from the file! That is inefficient.   
-
-
-    }
 
 
 
