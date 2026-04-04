@@ -28,18 +28,15 @@ public class PassphraseGenerator {
 
         while (keepGoing){
                 
-            System.out.print("How many random passphrases do you want to generate? ");
+            System.out.print("\nHow many random passphrases do you want to generate? ");
                     
             numPassphrases = getIntResponse(scnr);
-            System.out.println(numPassphrases);
                     
             System.out.print("How many words should be in each passphrase? ");
             numWords = getIntResponse(scnr);
-            System.out.println(numWords);
 
             System.out.print("Enter the size of each of the words used to make the random passphrases. ");
             wordSize = getIntResponse(scnr);
-            System.out.println(numWords);
 
 
 
@@ -82,50 +79,21 @@ public class PassphraseGenerator {
 
                 System.out.println(passPhrase);
 
+                passPhrase = ""; //Reset for next passphrase
+
             }
 
             System.out.print("Do you want to create more passphrases? (Y or N): ");
             
-            if (getYNCharacterResponse(scnr) == 'N' || getYNCharacterResponse(scnr) == 'n'){
-                keepGoing = false;
+            if (!isYesResponse(scnr)){
+                keepGoing = false; //Kill the loop if something other than Y or y is entered.
             }
 
         }
 
-        System.out.println("Bye!");
+        System.out.println("\n\nBye!");
 
     }
-
-           
-
-            
-
-            
-
-
-
-
-
-        //Prompt the user for the number of passphrases to be created, the number of words to be included 
-        //in each passphrase, and how many letters should be in each random word that is used to create the passphrases.
-
-
-
-
-
-
-
-
-
-
-
-        //Verify that the requested word size will work. If no word exists of that size, display an error message.
-
-        //Build and display the passphrases with the requested number of random words of the specified size from the word bank.
-        
-        //Ask the user if they wish to build more passphrases. If the answer is yes, do not reload the words from the file! That is inefficient.   
-
-
 
 
     /**
@@ -162,15 +130,16 @@ public class PassphraseGenerator {
 	}
 
 	/**
-	 * Method getYNCharacterResponse is a helper method that seeks a Character object and validates it is, in fact, a character that is either Y or N. Input is
+	 * Method isYesResponse is a helper method that seeks a Character object and validates it is, in fact, a character that is either Y or N. Input is
 	 * sought until a Character object is entered and it is a Y or N (or lowercase counterparts y or n, which are converted to uppercase).
 	 * @param input is a Scanner object that can be used to get input from the keyboard, a file, etc. 
 	 * It is only used as keyboard input in this program, but reuse is simple.
-	 * @return response value is validated, Character that is y/Y/n/N
+	 * @return response value is validated and true is returned if Yes and false if No.
 	 */
-	private static Character getYNCharacterResponse(Scanner input){
+	private static boolean isYesResponse(Scanner input){
 
 		Character response = 'Q';
+        boolean result = false;
 
 		while (Character.toUpperCase(response) != 'Y' && Character.toUpperCase(response) != 'N'){
 
@@ -178,6 +147,7 @@ public class PassphraseGenerator {
 				
 				response = input.next().charAt(0);
 				response = Character.toUpperCase(response);
+                System.out.println("Response: " + response);
 
 			}
 
@@ -192,7 +162,11 @@ public class PassphraseGenerator {
 
 		}
 
-		return response;
+        if (response == 'Y'){
+            result = true;
+        }
+
+		return result;
 
 	}
     
